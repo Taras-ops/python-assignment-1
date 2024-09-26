@@ -1,16 +1,29 @@
 def calc_tip():
-    n = int(input('Write number of meals: '))
+    n = input('Write number of meals: ')
+    while not n.isdigit():
+        n = input('Please, write number of meals: ')
+
+    n = int(n)
+
     prices = []
 
     for i in range(n):
-        price = int(input('Write a price of meal #' + str(i + 1) + ': '))
-        prices.append(price)
+        price = input('Write a price of meal #' + str(i + 1) + ': ')
+
+        while not price.isdigit():
+            price = input('Please, write a price of meal #' + str(i + 1) + ': ')
+
+        prices.append(int(price))
 
     if n <= 0:
         print('\n' + 'Please, write a correct number of meals!')
         return
 
-    tip = int(input('Write a percentage of tip: '))
+    tip = input('Write a percentage of tip: ')
+    while not tip.isdigit():
+        tip = input('Please, write a percentage of tip: ')
+
+    tip = int(tip)
 
     total_price_of_meals = sum(prices)
 

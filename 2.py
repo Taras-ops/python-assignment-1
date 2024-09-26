@@ -6,12 +6,12 @@ def transform_temperatures():
     temperatures_celsius = []
 
     for i in range(7):
-        temperature = int(
-            input('Write the temperature in Fahrenheit degreees of the ' +
-                  str(i + 1) + ' day of the week: ')
-            )
+        temperature = input('Write the temperature in Fahrenheit degreees of the ' + str(i + 1) + ' day of the week: ')
 
-        temperature_celsius = fahreheit_to_celsius(temperature)
+        while not temperature.isdigit():
+            temperature = input('Please, Write the temperature in Fahrenheit degreees of the ' + str(i + 1) + ' day of the week: ')
+
+        temperature_celsius = fahreheit_to_celsius(int(temperature))
 
         if temperature_celsius < 10:
             print('\n' + 'Cold!' + '\n')
