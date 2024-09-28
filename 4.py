@@ -9,10 +9,10 @@ def calc_deposit():
     while not deposit_percentage.isdigit():
         deposit_percentage = input('Please, enter percentage of deposit of your month salary: ')
 
-    year_percentage = input('Enter year bank percentage of deposit: ')
+    year_percentage = input('Enter bank percentage of deposit: ')
 
     while not year_percentage.isdigit():
-        year_percentage = input('Please, enter year bank percentage of deposit: ')
+        year_percentage = input('Please, enter bank percentage of deposit: ')
 
     month_salary = int(month_salary)
     deposit_percentage = int(deposit_percentage)
@@ -23,10 +23,9 @@ def calc_deposit():
 
     while True:
         balance += round(month_salary * deposit_percentage / 100, 2)
+        balance += round(balance * year_percentage / 1200, 2)
 
-        if i % 12 == 0:
-            balance += round(balance * year_percentage / 100, 2)
-        print(f'Your balance of {i} month: {balance}')
+        print(f'Your balance of {i} month: {round(balance, 2)}')
 
         if i % 12 == 0:
             number = int(
@@ -39,7 +38,7 @@ def calc_deposit():
                 )
 
             if number == 0:
-                print(f'\nYour balance: {balance}')
+                print(f'\nYour balance: {round(balance, 2)}')
                 return
 
         i += 1
